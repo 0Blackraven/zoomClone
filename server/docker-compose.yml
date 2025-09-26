@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:16
+    container_name: pgdatabase
+    restart: always 
+    environment:
+      POSTGRES_USER: joydeep
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: zoomClone
+    ports:
+      - "5431:5432"
+    volumes:
+      - pgdata:/var/lib/postgesql/data
+
+volumes:
+  pgdata:
