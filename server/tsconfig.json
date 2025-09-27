@@ -34,6 +34,8 @@
     // "noPropertyAccessFromIndexSignature": true,
 
     // Recommended Options
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
     "strict": true,
     "jsx": "react-jsx",
     "verbatimModuleSyntax": true,

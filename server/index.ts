@@ -2,6 +2,7 @@ import Express from "express"
 import cors from "cors"
 import { createServer } from "http"
 import { Server } from "socket.io"
+import { random } from "./rpcService/service.ts"
 
 const app = Express();
 
@@ -32,5 +33,7 @@ io.on("error", (error)=>{
 server.listen(8080, ()=>{
     console.log("connected to port");
 })
+
+random();
 
 export { io, app };
