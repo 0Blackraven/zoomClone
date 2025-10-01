@@ -6,11 +6,15 @@ edition = "2024"
 [dependencies]
 anyhow = "1.0.100"
 axum = "0.8.4"
+parking_lot = "0.12.4"
 prost = "0.14.1"
 serde = "1.0.226"
 tokio = { version = "1.47.1", features = ["full"] }
 tonic = "0.14.2"
 tonic-prost = "0.14.2"
+tracing = "0.1.41"
+uuid = "1.18.1"
+webrtc = "0.14.0"
 
 
 [build-dependencies]

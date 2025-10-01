@@ -1,3 +1,8 @@
+mod sfu;
+use std::collections::HashMap;
+use std::sync::Arc;
+use parking_lot::RwLock;
+
 pub mod echo{
     tonic::include_proto!("echo");
 }
@@ -25,6 +30,8 @@ impl Echo for MyEcho {
 #[tokio::main]
 async fn main() -> anyhow::Result<()> {
     let addr = ([0, 0, 0, 0], 50051).into();
+
+    let rooms: sfu::Rooms = Arc::new(RwLock::new(HashMap::new()));
 
     println!("Server listening on {}", addr);
     tonic::transport::Server::builder()

@@ -3,6 +3,8 @@ import cors from "cors"
 import { createServer } from "http"
 import { Server } from "socket.io"
 import { random } from "./rpcService/service.ts"
+import type {Socket} from "socket.io"
+import { socketConnections } from "./socketConnections.ts"
 
 const app = Express();
 
@@ -22,8 +24,9 @@ const io = new Server(server,{
     })
 });
 
-io.on("connection", (socket) =>{
+io.on("connection", (socket:Socket) =>{
     socket.emit("connected", "hello");
+    socketConnections(socket);
 });
 
 io.on("error", (error)=>{
@@ -34,6 +37,6 @@ server.listen(8080, ()=>{
     console.log("connected to port");
 })
 
-random();
+// random();
 
-export { io, app };
+export { io , app };

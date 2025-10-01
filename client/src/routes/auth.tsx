@@ -48,7 +48,7 @@ export default function Auth(){
       }
       e.preventDefault();
       try{
-        const res = axios.post("http://localhost:8080/auth",
+        axios.post("http://localhost:8080/auth",
           {
             usernameOrEmail:usernameOrEmail,
             password:password,
